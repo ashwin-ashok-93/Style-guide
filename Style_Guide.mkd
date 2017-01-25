@@ -1,0 +1,56 @@
+# The Modables Style Guide
+
+>" In character, in manner, in style, in all things, the supreme excellence is simplicity."
+
+> Henry Wadsworth Longfellow
+
+
+This Document outlines and elaborates the guidelines for writing clean and practical looking code for the modables-dsl.
+
+Since modables-dsl is implemented in Ruby, most of the style rules are based on Ruby's Style guidelines.
+
+## Table of Contents
+* [Source Code Layout](#Source.Code.Layout)
+
+
+##Source Code Layout
+
+Every modables-dsl file starts with a `morb do` statement and ends with a `end` statement.
+
+~~~Ruby
+morb do
+    
+  blocks do
+    
+    sub-block 
+
+  end
+
+end
+~~~
+
+Each block between a `do` and `end` block starts is indented.
+
+Use two *spaces* per indentation level (aka soft tabs). No hard tabs.
+
+
+##Key value pairs
+
+key value pairs are separated by space
+
+~~~Ruby
+key "value"
+~~~
+
+###indentation rules
+
+
+
+
+
+
+
+
+
+
+
