@@ -29,10 +29,16 @@ morb do
 end
 ~~~
 Comments are single-line only and start with #
+
 ###indentation rules
 Each block between a `do` and `end` block starts is indented.
 
 Use two *spaces* per indentation level (aka soft tabs). No hard tabs.
+
+
+##Syntax Rules
+
+* The Syntax of modables-dsl is very close to that of ruby.
 
 
 ##Key value pairs
@@ -46,9 +52,9 @@ key "value"
 for example consider the block below
 
 ~~~Ruby
- variable :redis_server_port do
-    description 'Port Number'
-    default     7000
+variable :redis_server_port do
+  description 'Port Number'
+  default     7000
   end
 ~~~
 
@@ -59,14 +65,14 @@ for example consider the block below
 * The calue elements must be aligned with the value element the is spaced the farthest, for example
 
 ~~~Ruby
- variable :Random do
-    description    'Number'
-    default        1000
-    attribute_data 'None'
+variable :Random do
+  description    'Number'
+  default        1000
+  attribute_data 'None'
   end
 ~~~
 
-all the values are aligned with the start of the `attribute_data` value
+All the values are aligned with the start of the `attribute_data` value
 
 
 ##Strings
@@ -79,15 +85,15 @@ for example
 
 ~~~Ruby
 provisioner 'file' do
-	connection do
-		type        'ssh'
-		user        'root'
-		private_key '${file("${var.private_key_path}")}'
-		agent       false
-		end
+  connection do
+    type        'ssh'
+	user        'root'
+	private_key '${file("${var.private_key_path}")}'
+	agent       false
+	end
 	source      '${var.install_script_src_path}'
-		destination '${var.install_script_dest_path}'
-		end
+	destination '${var.install_script_dest_path}'
+	end
 
 ~~~
 
@@ -103,13 +109,15 @@ In the event that a variable name reqires a hyphen, replace it with _ and use th
 
 ~~~Ruby
 
-        metadata do
-			ssh_keys :dash, "root:#{IO.read('bucket.pub')}"
-		end
+ metadata do
+  ssh_keys :dash, "root:#{IO.read('bucket.pub')}"
+  end
 ~~~
 
 
 ##Lists and Arrays
+
+
 
 
 
