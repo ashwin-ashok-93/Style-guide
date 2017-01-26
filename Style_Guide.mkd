@@ -1,4 +1,5 @@
-# The Modables Style Guide
+
+#The Modables Style Guide
 
 >" In character, in manner, in style, in all things, the supreme excellence is simplicity."
 
@@ -8,6 +9,8 @@
 This Document outlines and elaborates the guidelines for writing clean and practical looking code for the modables-dsl.
 
 Since modables-dsl is implemented in Ruby, most of the style rules are based on Ruby's Style guidelines.
+
+->![](https://modabl.es/img/logo.png)<-
 
 ## Table of Contents
 * [Source Code Layout](#Source.Code.Layout)
@@ -35,10 +38,6 @@ Each block between a `do` and `end` block starts is indented.
 
 Use two *spaces* per indentation level (aka soft tabs). No hard tabs.
 
-
-##Syntax Rules
-
-* The Syntax of modables-dsl is very close to that of ruby.
 
 
 ##Key value pairs
@@ -114,8 +113,27 @@ In the event that a variable name reqires a hyphen, replace it with _ and use th
   end
 ~~~
 
+##Syntax Rules
+
+* The Syntax of modables-dsl is very close to that of ruby.
+
+let us say we have a block in terraform HCL
+
+The names of resources or variables start with a colon `:` and quotes are not needed,
+if the name contains a hyphen, then 
+
+~~~JavaScript
+resource "google_compute_instance" "redis-server" {
+  name         = "tf-redis-server"
+  machine_type = "f1-micro"
+  zone         = "asia-east1-a"
+  tags         = ["www-node"]
+  }
+~~~
 
 ##Lists and Arrays
+
+
 
 
 
