@@ -28,7 +28,7 @@ morb do
 
 end
 ~~~
-
+Comments are single-line only and start with #
 ###indentation rules
 Each block between a `do` and `end` block starts is indented.
 
@@ -52,13 +52,64 @@ for example consider the block below
   end
 ~~~
 
+###Rules for Key-value pairs
+
+* Each key value pair starts on a new line
+
+* The calue elements must be aligned with the value element the is spaced the farthest, for example
+
+~~~Ruby
+ variable :Random do
+    description    'Number'
+    default        1000
+    attribute_data 'None'
+  end
+~~~
+
+all the values are aligned with the start of the `attribute_data` value
+
 
 ##Strings
 
+* Strings are enclosed within ''
+* Intepolated strings are enclosed within ""
+* Ruby Interpolated strings are enclosed within "#{}"
+
+for example
+
+~~~Ruby
+provisioner 'file' do
+	connection do
+		type        'ssh'
+		user        'root'
+		private_key '${file("${var.private_key_path}")}'
+		agent       false
+		end
+	source      '${var.install_script_src_path}'
+		destination '${var.install_script_dest_path}'
+		end
+
+~~~
 
 
+###The dash helper
+
+Generally, the use of hyphen`(-)` is discouraged in modalables, we recommend using underscore`(_)` instead while assigning names.
+
+* Hyphens can be used inside strings.
+
+In the event that a variable name reqires a hyphen, replace it with _ and use the dash helper
 
 
+~~~Ruby
+
+        metadata do
+			ssh_keys :dash, "root:#{IO.read('bucket.pub')}"
+		end
+~~~
+
+
+##Lists and Arrays
 
 
 
