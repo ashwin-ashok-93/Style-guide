@@ -21,7 +21,7 @@ Every modables-dsl file starts with a `morb do` statement and ends with a `end` 
 morb do
     
   blocks do
-    
+    #Comments
     sub-block 
 
   end
@@ -29,6 +29,7 @@ morb do
 end
 ~~~
 
+###indentation rules
 Each block between a `do` and `end` block starts is indented.
 
 Use two *spaces* per indentation level (aka soft tabs). No hard tabs.
@@ -42,8 +43,17 @@ key value pairs are separated by space
 key "value"
 ~~~
 
-###indentation rules
+for example consider the block below
 
+~~~Ruby
+ variable :redis_server_port do
+    description 'Port Number'
+    default     7000
+  end
+~~~
+
+
+##Strings
 
 
 
