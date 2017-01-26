@@ -117,10 +117,12 @@ In the event that a variable name reqires a hyphen, replace it with _ and use th
 
 * The Syntax of modables-dsl is very close to that of ruby.
 
-let us say we have a block in terraform HCL
-
 The names of resources or variables start with a colon `:` and quotes are not needed,
-if the name contains a hyphen, then 
+if the name contains a hyphen, then quotes may e used.
+
+*let us say we have a block in terraform HCL*
+
+
 
 ~~~JavaScript
 resource "google_compute_instance" "redis-server" {
@@ -129,6 +131,17 @@ resource "google_compute_instance" "redis-server" {
   zone         = "asia-east1-a"
   tags         = ["www-node"]
   }
+~~~
+
+The above block can be written in modables-DSL as
+
+~~~Ruby
+resource :google_compute_instance, 'redis-server' do
+  name         'tf-redis-server'
+  machine_type 'f1-micro'
+  zone         'asia-east1-a'
+  tags         ['www-node']
+  end
 ~~~
 
 ##Lists and Arrays
